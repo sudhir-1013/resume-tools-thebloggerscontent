@@ -1,26 +1,55 @@
 @import "tailwindcss";
 
+/* Resume Tools — design tokens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Deep charcoal base */
+  --charcoal: #0f172a;
+  --charcoal-elevated: #1e293b;
+  --charcoal-border: #334155;
+
+  /* Midnight purple — primary brand */
+  --primary: #6d28d9;
+  --primary-hover: #7c3aed;
+  --primary-muted: #4c1d95;
+  --primary-glow: color-mix(in srgb, var(--primary) 45%, transparent);
+
+  /* Neon cyan — secondary / accents */
+  --secondary: #22d3ee;
+  --secondary-hover: #67e8f9;
+  --secondary-muted: #0891b2;
+  --secondary-glow: color-mix(in srgb, var(--secondary) 35%, transparent);
+
+  /* Content */
+  --foreground: #f1f5f9;
+  --foreground-muted: #94a3b8;
+  --foreground-subtle: #64748b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-charcoal: var(--charcoal);
+  --color-charcoal-elevated: var(--charcoal-elevated);
+  --color-charcoal-border: var(--charcoal-border);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-glow: var(--primary-glow);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-muted: var(--secondary-muted);
+  --color-secondary-glow: var(--secondary-glow);
+
+  --color-background: var(--charcoal);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 body {
-  background: var(--background);
+  background: var(--charcoal);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
