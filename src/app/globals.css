@@ -53,3 +53,99 @@ body {
   background: var(--charcoal);
   color: var(--foreground);
 }
+
+/* --- Not found page motion --- */
+@keyframes nf-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(1.5deg);
+  }
+}
+
+@keyframes nf-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.55;
+  }
+  33% {
+    transform: translate(8px, -10px) scale(1.03);
+    opacity: 0.75;
+  }
+  66% {
+    transform: translate(-6px, 6px) scale(0.98);
+    opacity: 0.6;
+  }
+}
+
+@keyframes nf-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes nf-pulse-ring {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.45;
+  }
+  70% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+}
+
+.nf-float {
+  animation: nf-float 5s ease-in-out infinite;
+}
+
+.nf-drift-slow {
+  animation: nf-drift 12s ease-in-out infinite;
+}
+
+.nf-drift-delay {
+  animation: nf-drift 14s ease-in-out infinite 1.5s;
+}
+
+.nf-text-shimmer {
+  background: linear-gradient(
+    110deg,
+    var(--secondary) 0%,
+    var(--foreground) 25%,
+    var(--primary-hover) 50%,
+    var(--foreground) 75%,
+    var(--secondary) 100%
+  );
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: nf-shimmer 7s ease infinite;
+}
+
+.nf-pulse-ring::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  border: 1px solid color-mix(in srgb, var(--secondary) 55%, transparent);
+  animation: nf-pulse-ring 2.8s ease-out infinite;
+  pointer-events: none;
+}
+
+
+
+/* Deep Charcoal (#0f172a), Midnight Purple, and Neon Cyan accents */
